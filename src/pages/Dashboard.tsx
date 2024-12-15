@@ -1,7 +1,9 @@
 import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
 import Loader from "../components/common/Loader/Loader";
-import { baseUri, people } from "../constants/constants"
-import useFetch from "../hooks/useFetch"
+import ListContainer from "../components/ListContainer/ListContainer";
+import SearchBox from "../components/SearchBox/SearchBox";
+import { baseUri, people } from "../constants/constants";
+import useFetch from "../hooks/useFetch";
 
 function Dashboard() {
   const uri = `${baseUri}${people}`;
@@ -18,8 +20,8 @@ function Dashboard() {
       {isLoading ?
         <Loader /> :
         <>
-          <div>Search</div>
-          <div>Dashboard</div>
+          <SearchBox />
+          <ListContainer data={data} />
         </>
       }
     </>

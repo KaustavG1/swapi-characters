@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
+import { PeopleData } from "../models/PeopleData";
 
 function useFetch(url: string) {
   const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState(null); // TODO: Create a datatype for data
+  const [data, setData] = useState<PeopleData | null>(null);
   const [error, setError] = useState<AxiosError | null>(null)
 
   useEffect(() => {
