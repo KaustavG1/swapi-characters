@@ -9,7 +9,7 @@ import Pagination from "../components/Pagination/Pagination";
 import { PaginationDirection } from "../enums/PaginationDirection";
 
 function Dashboard() {
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const uri = `${baseUri}/${people}`;
   const { isLoading, data, error } = useFetch(uri);
 
@@ -17,9 +17,9 @@ function Dashboard() {
 
   const handlePagination = (dir: string) => {
     if (dir === PaginationDirection.prev) {
-      console.log(dir + ' prevvv');
+      console.log(dir + " prevvv");
     } else {
-      console.log(dir + ' nexttt');
+      console.log(dir + " nexttt");
     }
   };
 
@@ -32,11 +32,12 @@ function Dashboard() {
 
   return (
     <>
-      {isLoading ?
-        <Loader /> :
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
           <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <ListContainer data={data} />
+          <ListContainer data={data?.results} />
           <Pagination
             previous={data?.previous}
             next={data?.next}
@@ -44,7 +45,7 @@ function Dashboard() {
             onNextClick={handlePagination}
           />
         </>
-      }
+      )}
     </>
   );
 }

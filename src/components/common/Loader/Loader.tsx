@@ -2,7 +2,7 @@ import "./Loader.css";
 
 function Loader() {
   return (
-    <div className="loader-page">
+    <div className="blank-page">
       <div className="loader">Loading ...</div>
     </div>
   );

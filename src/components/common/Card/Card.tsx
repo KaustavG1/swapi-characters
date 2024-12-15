@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router";
 import { Character } from "../../../models/Character";
 import "./Card.css";
@@ -16,7 +15,9 @@ function Card({ character }: CardProps) {
 
   return (
     <div className="character-card" onClick={handleCardClick}>
-      {character?.name}
+      <div className="card-name">{character?.name}</div>
+      <div className="card-details">Gender: {character?.gender}</div>
+      <div className="card-details">Home Planet: {character?.homeworld}</div>
     </div>
   );
 }

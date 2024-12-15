@@ -2,7 +2,9 @@ import "./EmptyRecords.css";
 
 function EmptyRecords() {
   return (
-    <div className="empty-record-message">No Records found.</div>
+    <div className="blank-page">
+      <div className="empty-record-message">No Records found.</div>
+    </div>
   );
 }
 
