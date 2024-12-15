@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import Dashboard from "./pages/Dashboard";
-import Character from "./pages/Character";
+import CharacterDetails from "./pages/CharacterDetails";
 import Favourites from "./pages/Favourites";
 import "./App.css";
 
@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/favourites" element={<Favourites />} />
-      <Route path=":id" element={<Character />} />
+      <Route path=":id" element={<CharacterDetails />} />
     </Routes>
   );
 }
