@@ -2,4 +2,6 @@
   border: 1px solid black;
   height: 250px;
   width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
 }

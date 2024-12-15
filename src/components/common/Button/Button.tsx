@@ -10,7 +10,7 @@ export interface ButtonProps {
 function Button({ icon, text, className, disabled }: ButtonProps) {
   return (
     <div>
-      <button className={className} disabled={disabled}>
+      <button className={`${className} button-default`} disabled={disabled} >
         <span>{icon}</span>
         <span>{text}</span>
       </button>

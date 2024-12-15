@@ -12,15 +12,13 @@ function SearchBox({searchTerm, setSearchTerm}: SearchBoxProps) {
   }
 
   return (
-    <div className="search-container">
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="search characters"
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
-    </div>
+    <input
+      className="search-bar"
+      type="text"
+      placeholder="search characters"
+      value={searchTerm}
+      onChange={handleInputChange}
+    />
   );
 }
 
