@@ -1,3 +1,5 @@
+
+import { useNavigate } from "react-router";
 import { Character } from "../../../models/Character";
 import "./Card.css";
 
@@ -6,8 +8,16 @@ export interface CardProps {
 }
 
 function Card({ character }: CardProps) {
+  let navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/${character?.uid}`);
+  }
+
   return (
-    <div>{character?.name}</div>
+    <div className="character-card" onClick={handleCardClick}>
+      {character?.name}
+    </div>
   );
 }
 

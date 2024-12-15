@@ -9,13 +9,13 @@ export interface ListContainerProps {
 
 function ListContainer({ data }: ListContainerProps) {
   if (data === null) {
-    return <EmptyRecords />
+    return <EmptyRecords />;
   }
 
   return (
-    <>
-      {data?.results?.map((character: any) => <Card character={character}/>)}
-    </>
+    <div className="list-container">
+      {data?.results?.map((character) => <Card key={character.uid} character={character}/>)}
+    </div>
   );
 }
 

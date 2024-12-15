@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+}
+
+.fav-button {
+  font-size: 2rem;
+}

@@ -2,11 +2,11 @@ import { useParams } from "react-router";
 
 function CharacterDetails() {
   let { id } = useParams();
-  console.log(id)
+  console.log(id);
 
   return (
     <div>Character</div>
-  )
+  );
 }
 
-export default CharacterDetails
+export default CharacterDetails;
