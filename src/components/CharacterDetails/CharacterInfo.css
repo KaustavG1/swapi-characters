@@ -1,0 +1,30 @@
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header {
+  font-size: 3rem;
+}
+
+.section-details {
+  margin-top: 20px;
+  outline: 1px solid red;
+}
+
+.nav-buttons {
+  outline: 1px solid rebeccapurple;
+  height: 40px;
+  font-size: 2rem;
+}
+
+.back-button {
+  border: none !important;
+  background-color: #fff;
+  transition: all 1s ease;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}

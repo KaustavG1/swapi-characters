@@ -6,13 +6,22 @@ import { baseUri, people } from "../constants/constants";
 import useFetch from "../hooks/useFetch";
 import Header from "../components/Header/Header";
 import Pagination from "../components/Pagination/Pagination";
+import { PaginationDirection } from "../enums/PaginationDirection";
 
 function Dashboard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const uri = `${baseUri}${people}`;
+  const uri = `${baseUri}/${people}`;
   const { isLoading, data, error } = useFetch(uri);
 
   console.log(data, searchTerm); // Remove console log
+
+  const handlePagination = (dir: string) => {
+    if (dir === PaginationDirection.prev) {
+      console.log(dir + ' prevvv');
+    } else {
+      console.log(dir + ' nexttt');
+    }
+  };
 
   if (error) {
     return <ErrorMessage />;
@@ -28,7 +37,12 @@ function Dashboard() {
         <>
           <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <ListContainer data={data} />
-          <Pagination />
+          <Pagination
+            previous={data?.previous}
+            next={data?.next}
+            onPreviousClick={handlePagination}
+            onNextClick={handlePagination}
+          />
         </>
       }
     </>

@@ -1,6 +1,8 @@
+import FavouriteDashboard from "../components/FavouriteDashboard/FavouriteDashboard";
+
 function Favourites() {
   return (
-    <div>Favourites</div>
+    <FavouriteDashboard />
   );
 }
 

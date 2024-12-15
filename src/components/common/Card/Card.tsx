@@ -8,11 +8,11 @@ export interface CardProps {
 }
 
 function Card({ character }: CardProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleCardClick = () => {
     navigate(`/${character?.uid}`);
-  }
+  };
 
   return (
     <div className="character-card" onClick={handleCardClick}>

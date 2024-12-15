@@ -1,14 +1,8 @@
 import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
-import "./CharacterInfo.css";
+import "./FavouriteDashboard.css";
 
-export interface CharacterInfoProps {
-  data: any;
-}
-
-function CharacterInfo({ data }: CharacterInfoProps) {
-  console.log(data);
-
+function FavouriteDashboard() {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -23,17 +17,12 @@ function CharacterInfo({ data }: CharacterInfoProps) {
           className="pagination-buttons back-button"
           onClick={handleBackClick}
         />
-        <div className="section-header">Character Details</div>
-        <Button
-          icon="💔"
-          text=""
-          className="pagination-buttons"
-          onClick={() => console.log('update preference')}
-        />
+        <div className="section-header">Favourites</div>
+        <div className="blank"/>
       </div>
       <div className="section-details">H</div>
     </>
   );
 }
 
-export default CharacterInfo;
+export default FavouriteDashboard;
