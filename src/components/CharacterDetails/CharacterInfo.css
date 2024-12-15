@@ -23,7 +23,7 @@
 
 .back-button {
   border: none !important;
-  background-color: #fff;
+  background-color: inherit;
   transition: all 1s ease;
 }
 
