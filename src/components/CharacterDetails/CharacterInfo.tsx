@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
+import { DetailsData } from "../../models/DetailsData";
+import Loader from "../common/Loader/Loader";
+import useFetch from "../../hooks/useFetch";
 import "./CharacterInfo.css";
 
 export interface CharacterInfoProps {
-  data: any;
+  data: DetailsData;
 }
 
 function CharacterInfo({ data }: CharacterInfoProps) {
-  console.log(data);
+  const planetUri = data?.result?.properties?.homeworld;
+  const { isLoading, data: planetData, error } = useFetch(planetUri);
+  console.log(data, planetData, error);
 
   const navigate = useNavigate();
 
@@ -31,7 +36,16 @@ function CharacterInfo({ data }: CharacterInfoProps) {
           onClick={() => console.log('update preference')}
         />
       </div>
-      <div className="section-details">H</div>
+      {isLoading ?
+        <Loader /> :
+        <div className="section-details">
+          <div>{data?.result?.properties?.name}</div>
+          <div>Hair Color: {data?.result?.properties?.hair_color}</div>
+          <div>Eye Color: {data?.result?.properties?.eye_color}</div>
+          <div>Gender: {data?.result?.properties?.gender}</div>
+          <div>Home Planet: {planetData?.result?.properties?.name}</div>
+        </div>
+      }
     </>
   );
 }
