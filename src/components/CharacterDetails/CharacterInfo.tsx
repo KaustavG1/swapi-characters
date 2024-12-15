@@ -39,11 +39,24 @@ function CharacterInfo({ data }: CharacterInfoProps) {
       {isLoading ?
         <Loader /> :
         <div className="section-details">
-          <div>{data?.result?.properties?.name}</div>
-          <div>Hair Color: {data?.result?.properties?.hair_color}</div>
-          <div>Eye Color: {data?.result?.properties?.eye_color}</div>
-          <div>Gender: {data?.result?.properties?.gender}</div>
-          <div>Home Planet: {planetData?.result?.properties?.name}</div>
+          <div className="name">
+            {data?.result?.properties?.name}
+          </div>
+          <div className="details">
+            Hair Color: {data?.result?.properties?.hair_color}
+          </div>
+          <div className="details">
+            Eye Color: {data?.result?.properties?.eye_color}
+          </div>
+          <div className="details">
+            Gender: {data?.result?.properties?.gender}
+          </div>
+          <div className="details">
+            Home Planet: {planetData?.result?.properties?.name}
+          </div>
+          <div className="details">
+            Favourite: {String(true)}
+          </div>
         </div>
       }
     </>
