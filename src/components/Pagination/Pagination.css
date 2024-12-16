@@ -9,5 +9,5 @@
 }
 
 .pagination-button-disabled {
-  cursor: none !important;
+  cursor: not-allowed !important;
 }
