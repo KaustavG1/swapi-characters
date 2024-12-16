@@ -11,8 +11,6 @@ function CharacterView() {
   const uri = `${baseUri}/${people}/${id}`;
   const { isLoading, data, error } = useFetch<CharacterDetails | null>(uri);
 
-  console.log(data, error);
-
   if (error) {
     return <ErrorMessage />;
   }

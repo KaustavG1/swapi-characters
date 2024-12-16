@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > renders headline 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App > renders loading 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;

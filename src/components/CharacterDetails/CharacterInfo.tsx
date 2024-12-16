@@ -3,14 +3,14 @@ import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
 import Loader from "../common/Loader/Loader";
 import useFetch from "../../hooks/useFetch";
-import { getLocalValue, setLocalValue } from "../../utils/localStorageHelper";
-import { CharacterDetails } from "../../models/CharacterDetails";
-import { localStorageKey } from "../../constants/constants";
-import { PlanetDetails } from "../../models/PlanetDetails";
-import "./CharacterInfo.css";
 import useFetchAll from "../../hooks/useFetchAll";
+import { getLocalValue, setLocalValue } from "../../utils/localStorageHelper";
+import { localStorageKey } from "../../constants/constants";
+import { CharacterDetails } from "../../models/CharacterDetails";
 import { FilmDetails } from "../../models/FilmDetails";
+import { PlanetDetails } from "../../models/PlanetDetails";
 import { StarshipDetails } from "../../models/StarshipDetails";
+import "./CharacterInfo.css";
 
 export interface CharacterInfoProps {
   data: CharacterDetails | null;
@@ -29,8 +29,6 @@ function CharacterInfo({ data }: CharacterInfoProps) {
     useFetchAll<FilmDetails[]>(filmUris);
   const { isLoading: starshipsLoading, data: starshipsData } =
     useFetchAll<StarshipDetails[]>(starshipUris);
-
-  console.log(filmsData, starshipsData);
 
   const navigate = useNavigate();
 

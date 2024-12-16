@@ -12,8 +12,6 @@ function usePaginatedData(
   );
   const totalPages = Math.ceil((data ?? []).length / itemsPerPage);
 
-  useEffect(() => console.log(paginatedData, "besttt"), [paginatedData]);
-
   useEffect(() => {
     const slicedData = (data ?? [])?.slice(
       page * itemsPerPage,
