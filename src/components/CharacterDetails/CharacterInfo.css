@@ -14,12 +14,7 @@
   border-radius: 5px;
   text-transform: uppercase;
   box-shadow: 5px 5px;
-}
-
-.nav-buttons {
-  outline: 1px solid rebeccapurple;
-  height: 40px;
-  font-size: 2rem;
+  background-color: #fffeff;
 }
 
 .back-button {
