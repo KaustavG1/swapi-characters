@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 
-function useFetch(url: string) {
+function useFetch<Type>(url: string) {
   const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Type | null>(null);
   const [error, setError] = useState<AxiosError | null>(null);
 
   const fetchData = async (url: string) => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 
-function useFetchAll(urls: string[]) {
+function useFetchAll<Type>(urls: string[]) {
   const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Type | null>(null);
   const [error, setError] = useState<AxiosError | null>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function useFetchAll(urls: string[]) {
           const promiseList = urls?.map((url: string) => axios.get(url));
           const resp = await Promise.all(promiseList);
           const data = await Promise.all(resp?.map((el: any) => el?.data));
-          setData(data);
+          setData(data as Type);
           setLoading(false);
         } catch (err) {
           setError(err as AxiosError);

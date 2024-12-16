@@ -3,21 +3,18 @@ import { PaginationDirection } from "../../enums/PaginationDirection";
 import "./Pagination.css";
 
 export interface PaginationProps {
-  previous: string | null | undefined;
-  next: string | null | undefined;
+  disablePrev: boolean;
+  disableNext: boolean;
   onPreviousClick: (dir: string) => void;
   onNextClick: (dir: string) => void;
 }
 
 function Pagination({
-  previous,
-  next,
+  disablePrev,
+  disableNext,
   onPreviousClick,
   onNextClick,
 }: PaginationProps) {
-  const disablePrev = previous === null;
-  const disableNext = next === null;
-
   return (
     <div className="pagination-container">
       <Button

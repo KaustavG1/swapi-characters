@@ -4,11 +4,14 @@ import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
 import Loader from "../components/common/Loader/Loader";
 import useFetch from "../hooks/useFetch";
 import { baseUri, people } from "../constants/constants";
+import { CharacterDetails } from "../models/CharacterDetails";
 
-function CharacterDetails() {
+function CharacterView() {
   const { id } = useParams();
   const uri = `${baseUri}/${people}/${id}`;
-  const { isLoading, data, error } = useFetch(uri);
+  const { isLoading, data, error } = useFetch<CharacterDetails | null>(uri);
+
+  console.log(data, error);
 
   if (error) {
     return <ErrorMessage />;
@@ -17,4 +20,4 @@ function CharacterDetails() {
   return <>{isLoading ? <Loader /> : <CharacterInfo data={data} />}</>;
 }
 
-export default CharacterDetails;
+export default CharacterView;

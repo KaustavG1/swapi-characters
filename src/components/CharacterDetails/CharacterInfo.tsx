@@ -4,58 +4,93 @@ import Button from "../common/Button/Button";
 import Loader from "../common/Loader/Loader";
 import useFetch from "../../hooks/useFetch";
 import { getLocalValue, setLocalValue } from "../../utils/localStorageHelper";
-import { DetailsData } from "../../models/DetailsData";
+import { CharacterDetails } from "../../models/CharacterDetails";
 import { localStorageKey } from "../../constants/constants";
+import { PlanetDetails } from "../../models/PlanetDetails";
 import "./CharacterInfo.css";
+import useFetchAll from "../../hooks/useFetchAll";
+import { FilmDetails } from "../../models/FilmDetails";
+import { StarshipDetails } from "../../models/StarshipDetails";
 
 export interface CharacterInfoProps {
-  data: DetailsData;
+  data: CharacterDetails | null;
 }
 
 function CharacterInfo({ data }: CharacterInfoProps) {
   const [isCurrentFav, setCurrentFav] = useState(false);
-  const planetUri = data?.result?.properties?.homeworld;
-  const { isLoading, data: planetData } = useFetch(planetUri);
+  const planetUri = data?.homeworld ?? "";
+  const filmUris = data?.films ?? [];
+  const starshipUris = data?.starships ?? [];
+  const { isLoading, data: planetData } = useFetch<PlanetDetails | null>(
+    planetUri
+  );
+
+  const { isLoading: filmsLoading, data: filmsData } =
+    useFetchAll<FilmDetails[]>(filmUris);
+  const { isLoading: starshipsLoading, data: starshipsData } =
+    useFetchAll<StarshipDetails[]>(starshipUris);
+
+  console.log(filmsData, starshipsData);
 
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate(`/`);
+    navigate(-1);
   };
 
   useEffect(() => {
-    const favs = getLocalValue(localStorageKey);
+    const favs: CharacterDetails[] = getLocalValue(localStorageKey);
     if (Array.isArray(favs)) {
-      const isFav =
-        favs?.find((el: any) => el?.uid === data?.result?.uid) !== undefined;
+      const isFav = favs?.find((el) => el?.url === data?.url) !== undefined;
 
       setCurrentFav(isFav);
     }
   }, []);
 
   const handleFavClick = () => {
-    const favs = getLocalValue(localStorageKey);
+    const favs: CharacterDetails[] = getLocalValue(localStorageKey);
     if (Array.isArray(favs)) {
-      const isFav =
-        favs?.find((el: any) => el?.uid === data?.result?.uid) !== undefined;
+      const isFav = favs?.find((el) => el?.url === data?.url) !== undefined;
 
       setCurrentFav(!isFav);
 
       if (isFav) {
-        const newFav = favs?.filter((el: any) => el?.uid !== data?.result?.uid);
+        const newFav = favs?.filter((el) => el?.url !== data?.url);
         setLocalValue(localStorageKey, JSON.stringify(newFav));
       } else {
         favs.push({
-          uid: data?.result?.uid,
-          name: data?.result?.properties?.name,
-          hair_color: data?.result?.properties?.hair_color,
-          eye_color: data?.result?.properties?.eye_color,
-          gender: data?.result?.properties?.gender,
-          homeworld: planetData?.result?.properties?.name,
+          url: data?.url ?? "",
+          name: data?.name ?? "",
+          hair_color: data?.hair_color ?? "",
+          eye_color: data?.eye_color ?? "",
+          gender: data?.gender ?? "",
+          homeworld: planetData?.name ?? "",
+          films: [""],
+          starships: [""],
         });
         setLocalValue(localStorageKey, JSON.stringify(favs));
       }
     }
+  };
+
+  const getFilms = (filmsData: FilmDetails[] | null) => {
+    let films = (filmsData ?? [])?.map((film) => film?.title)?.join(",");
+    if (films === "") {
+      films = "n/a";
+    }
+
+    return films;
+  };
+
+  const getStarships = (starshipsData: StarshipDetails[] | null) => {
+    let starships = (starshipsData ?? [])
+      ?.map((starship) => starship?.name)
+      ?.join(",");
+    if (starships === "") {
+      starships = "n/a";
+    }
+
+    return starships;
   };
 
   return (
@@ -74,24 +109,20 @@ function CharacterInfo({ data }: CharacterInfoProps) {
           onClick={handleFavClick}
         />
       </div>
-      {isLoading ? (
+      {isLoading || filmsLoading || starshipsLoading ? (
         <Loader />
       ) : (
         <div className="section-details">
-          <div className="name">{data?.result?.properties?.name}</div>
-          <div className="details">
-            Hair Color: {data?.result?.properties?.hair_color}
-          </div>
-          <div className="details">
-            Eye Color: {data?.result?.properties?.eye_color}
-          </div>
-          <div className="details">
-            Gender: {data?.result?.properties?.gender}
-          </div>
-          <div className="details">
-            Home Planet: {planetData?.result?.properties?.name}
-          </div>
+          <div className="name">{data?.name}</div>
+          <div className="details">Hair Color: {data?.hair_color}</div>
+          <div className="details">Eye Color: {data?.eye_color}</div>
+          <div className="details">Gender: {data?.gender}</div>
+          <div className="details">Home Planet: {planetData?.name}</div>
           <div className="details">Favourite: {String(isCurrentFav)}</div>
+          <div className="details">Films: {getFilms(filmsData)}</div>
+          <div className="details">
+            Starships: {getStarships(starshipsData)}
+          </div>
         </div>
       )}
     </>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const fetchDataFromUrl = async (url: string) => {
-  let data = null;
+const fetchDataFromUrl = async <Type>(url: string) => {
+  let data: Type | null = null;
   let error = null;
   let loading = true;
 

@@ -9,7 +9,8 @@
 }
 
 .section-details {
-  margin-top: 100px;
+  margin-top: 20px;
+  padding: 0px 20px;
   border: 1px solid #1f1f1f;
   border-radius: 5px;
   text-transform: uppercase;

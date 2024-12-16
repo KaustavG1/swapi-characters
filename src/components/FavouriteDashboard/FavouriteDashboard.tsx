@@ -12,7 +12,7 @@ function FavouriteDashboard() {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate(`/`);
+    navigate(-1);
   };
 
   useEffect(() => {

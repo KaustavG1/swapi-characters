@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AxiosError } from "axios";
 import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
 import Loader from "../components/common/Loader/Loader";
 import ListContainer from "../components/ListContainer/ListContainer";
@@ -8,61 +9,60 @@ import useFetch from "../hooks/useFetch";
 import { baseUri, people } from "../constants/constants";
 import { PaginationDirection } from "../enums/PaginationDirection";
 import { Character } from "../models/Character";
-import useFetchAll from "../hooks/useFetchAll";
 import fetchDataFromUrl from "../utils/fetchData";
-import { AxiosError } from "axios";
+import { CharacterDetails } from "../models/CharacterDetails";
+import { PlanetDetails } from "../models/PlanetDetails";
+import usePaginatedData from "../hooks/usePaginatedData";
 
 function Dashboard() {
   const [isPlanetLoading, setPlanetLoading] = useState(false);
   const [planetError, setPlanetError] = useState<AxiosError | null>(null);
   const [collatedData, setCollatedData] = useState<Character[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [urlList, setUrlList] = useState<string[]>([]);
   const uri = `${baseUri}/${people}`;
-  const { isLoading, data: peopleData, error, fetchData } = useFetch(uri);
   const {
-    isLoading: isDetailsLoading,
-    data: detailsData,
-    error: isDetailsError,
-  } = useFetchAll(urlList);
+    isLoading,
+    data: peopleData,
+    error,
+  } = useFetch<CharacterDetails[]>(uri);
+  const { paginatedData, previous, next, setData, page, totalPages } =
+    usePaginatedData(peopleData);
+
+  useEffect(() => {
+    if (Array.isArray(peopleData)) {
+      setData(peopleData?.slice(0, 14));
+    }
+  }, [peopleData]);
 
   const handlePagination = (dir: string) => {
     if (dir === PaginationDirection.prev) {
-      fetchData(peopleData?.previous);
+      previous();
     } else {
-      fetchData(peopleData?.next);
+      next();
     }
   };
 
   useEffect(() => {
-    if (Array.isArray(peopleData?.results) && peopleData?.results?.length > 0) {
-      const detailUrlList = peopleData?.results?.map(
-        (el: Character) => el?.url
-      );
-      setUrlList(detailUrlList);
-    }
-  }, [peopleData]);
-
-  useEffect(() => {
-    if (Array.isArray(detailsData) && detailsData?.length > 0) {
+    console.log("here");
+    if (Array.isArray(paginatedData) && paginatedData?.length > 0) {
       const fetchPlanetData = async () => {
         const reqdDetails: any = [];
-        for (const detail of detailsData) {
+        for (const detail of paginatedData) {
           setPlanetLoading(true);
-          const { data, error } = await fetchDataFromUrl(
-            detail?.result?.properties?.homeworld
+          const { data, error } = await fetchDataFromUrl<PlanetDetails>(
+            detail?.homeworld
           );
           setPlanetLoading(false);
           setPlanetError(error as AxiosError);
 
           reqdDetails.push({
-            name: detail?.result?.properties?.name,
-            uid: detail?.result.uid,
-            url: detail?.result?.properties?.url,
-            hair_color: detail?.result?.properties?.hair_color,
-            eye_color: detail?.result?.properties?.eye_color,
-            gender: detail?.result?.properties?.gender,
-            homeworld: data?.result?.properties?.name,
+            name: detail?.name,
+            uid: detail?.url,
+            url: detail?.url,
+            hair_color: detail?.hair_color,
+            eye_color: detail?.eye_color,
+            gender: detail?.gender,
+            homeworld: data?.name,
           });
         }
 
@@ -71,7 +71,7 @@ function Dashboard() {
 
       fetchPlanetData();
     }
-  }, [detailsData]);
+  }, [paginatedData]);
 
   const getCollatedData = () => {
     return collatedData?.filter((e) =>
@@ -79,21 +79,21 @@ function Dashboard() {
     );
   };
 
-  if (error || isDetailsError || planetError) {
+  if (error || planetError) {
     return <ErrorMessage />;
   }
 
   return (
     <>
-      {isLoading || isDetailsLoading || isPlanetLoading ? (
+      {isLoading || isPlanetLoading ? (
         <Loader />
       ) : (
         <>
           <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <ListContainer data={getCollatedData()} />
           <Pagination
-            previous={peopleData?.previous}
-            next={peopleData?.next}
+            disablePrev={page < 1}
+            disableNext={page === totalPages - 1}
             onPreviousClick={handlePagination}
             onNextClick={handlePagination}
           />

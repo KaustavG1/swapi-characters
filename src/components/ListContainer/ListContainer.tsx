@@ -1,6 +1,7 @@
 import Card from "../common/Card/Card";
 import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
 import { Character } from "../../models/Character";
+import { useNavigate } from "react-router";
 import "./ListContainer.css";
 
 export interface ListContainerProps {
@@ -9,6 +10,14 @@ export interface ListContainerProps {
 }
 
 function ListContainer({ data, className }: ListContainerProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = (url: string) => {
+    const splitUrl = url?.split("/");
+    const id = splitUrl[splitUrl.length - 1];
+    navigate(`/${id}`);
+  };
+
   if (data === null) {
     return <EmptyRecords />;
   }
@@ -16,7 +25,13 @@ function ListContainer({ data, className }: ListContainerProps) {
   return (
     <div className={`list-container ${className}`}>
       {data?.map((character) => (
-        <Card key={character.uid} character={character} />
+        <Card
+          key={character?.url}
+          name={character?.name}
+          gender={character?.gender}
+          homeworld={character?.homeworld}
+          onClick={() => handleCardClick(character?.url)}
+        />
       ))}
     </div>
   );
