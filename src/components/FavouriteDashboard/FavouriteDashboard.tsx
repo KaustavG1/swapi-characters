@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
 import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
 import ListContainer from "../ListContainer/ListContainer";
-import { useEffect, useState } from "react";
-import { localStorageKey } from "../../constants/constants";
 import { getLocalValue } from "../../utils/localStorageHelper";
+import { localStorageKey } from "../../constants/constants";
 import "./FavouriteDashboard.css";
 
 function FavouriteDashboard() {

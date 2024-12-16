@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router";
 import Card from "../common/Card/Card";
 import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
 import { Character } from "../../models/Character";
-import { useNavigate } from "react-router";
 import "./ListContainer.css";
 
 export interface ListContainerProps {

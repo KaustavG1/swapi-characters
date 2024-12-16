@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchDataFromUrl = async <Type>(url: string) => {
+export async function fetchDataFromUrl<Type>(url: string) {
   let data: Type | null = null;
   let error = null;
   let loading = true;
@@ -15,6 +15,6 @@ const fetchDataFromUrl = async <Type>(url: string) => {
   }
 
   return { loading, data, error };
-};
+}
 
 export default fetchDataFromUrl;

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
 import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
-import Loader from "../components/common/Loader/Loader";
-import ListContainer from "../components/ListContainer/ListContainer";
 import Header from "../components/Header/Header";
+import ListContainer from "../components/ListContainer/ListContainer";
+import Loader from "../components/common/Loader/Loader";
 import Pagination from "../components/Pagination/Pagination";
 import useFetch from "../hooks/useFetch";
+import usePaginatedData from "../hooks/usePaginatedData";
+import fetchDataFromUrl from "../utils/fetchData";
 import { baseUri, people } from "../constants/constants";
 import { PaginationDirection } from "../enums/PaginationDirection";
 import { Character } from "../models/Character";
-import fetchDataFromUrl from "../utils/fetchData";
 import { CharacterDetails } from "../models/CharacterDetails";
 import { PlanetDetails } from "../models/PlanetDetails";
-import usePaginatedData from "../hooks/usePaginatedData";
 
 function Dashboard() {
   const [isPlanetLoading, setPlanetLoading] = useState(false);
@@ -43,7 +43,6 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    console.log("here");
     if (Array.isArray(paginatedData) && paginatedData?.length > 0) {
       const fetchPlanetData = async () => {
         const reqdDetails: any = [];

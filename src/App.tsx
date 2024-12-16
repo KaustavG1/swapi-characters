@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter } from "react-router";
-import Dashboard from "./pages/Dashboard";
 import CharacterView from "./pages/CharacterView";
+import Dashboard from "./pages/Dashboard";
 import Favourites from "./pages/Favourites";
 import "./App.css";
 
