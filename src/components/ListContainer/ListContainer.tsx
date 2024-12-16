@@ -1,6 +1,6 @@
-import { Character } from "../../models/Character";
 import Card from "../common/Card/Card";
 import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
+import { Character } from "../../models/Character";
 import "./ListContainer.css";
 
 export interface ListContainerProps {

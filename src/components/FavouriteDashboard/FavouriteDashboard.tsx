@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
-import "./FavouriteDashboard.css";
+import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
 import ListContainer from "../ListContainer/ListContainer";
 import { useEffect, useState } from "react";
 import { localStorageKey } from "../../constants/constants";
 import { getLocalValue } from "../../utils/localStorageHelper";
-import EmptyRecords from "../common/EmptyRecords/EmptyRecords";
+import "./FavouriteDashboard.css";
 
 function FavouriteDashboard() {
   const [currentFavList, setCurrentFavList] = useState<any[]>([]);

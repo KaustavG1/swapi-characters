@@ -1,5 +1,5 @@
-import { PaginationDirection } from "../../enums/PaginationDirection";
 import Button from "../common/Button/Button";
+import { PaginationDirection } from "../../enums/PaginationDirection";
 import "./Pagination.css";
 
 export interface PaginationProps {
@@ -9,7 +9,12 @@ export interface PaginationProps {
   onNextClick: (dir: string) => void;
 }
 
-function Pagination({ previous, next, onPreviousClick, onNextClick }: PaginationProps) {
+function Pagination({
+  previous,
+  next,
+  onPreviousClick,
+  onNextClick,
+}: PaginationProps) {
   const disablePrev = previous === null;
   const disableNext = next === null;
 
@@ -18,13 +23,17 @@ function Pagination({ previous, next, onPreviousClick, onNextClick }: Pagination
       <Button
         text="<"
         disabled={disablePrev}
-        className={`pagination-buttons ${disablePrev && "pagination-button-disabled"}`}
+        className={`pagination-buttons ${
+          disablePrev && "pagination-button-disabled"
+        }`}
         onClick={() => onPreviousClick(PaginationDirection.prev)}
       />
       <Button
         text=">"
         disabled={disableNext}
-        className={`pagination-buttons ${disableNext && "pagination-button-disabled"}`}
+        className={`pagination-buttons ${
+          disableNext && "pagination-button-disabled"
+        }`}
         onClick={() => onNextClick(PaginationDirection.next)}
       />
     </div>

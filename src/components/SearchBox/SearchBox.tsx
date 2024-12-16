@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchBox.css";
 
 export interface SearchBoxProps {
@@ -6,10 +5,10 @@ export interface SearchBoxProps {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SearchBox({searchTerm, setSearchTerm}: SearchBoxProps) {
+function SearchBox({ searchTerm, setSearchTerm }: SearchBoxProps) {
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     setSearchTerm((event.target as HTMLInputElement).value);
-  }
+  };
 
   return (
     <input
@@ -23,4 +22,3 @@ function SearchBox({searchTerm, setSearchTerm}: SearchBoxProps) {
 }
 
 export default SearchBox;
-

@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../common/Button/Button";
-import { DetailsData } from "../../models/DetailsData";
 import Loader from "../common/Loader/Loader";
 import useFetch from "../../hooks/useFetch";
-import "./CharacterInfo.css";
 import { getLocalValue, setLocalValue } from "../../utils/localStorageHelper";
+import { DetailsData } from "../../models/DetailsData";
 import { localStorageKey } from "../../constants/constants";
-import { useEffect, useState } from "react";
+import "./CharacterInfo.css";
+
 export interface CharacterInfoProps {
   data: DetailsData;
 }

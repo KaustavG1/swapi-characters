@@ -1,9 +1,9 @@
 import { useParams } from "react-router";
 import CharacterInfo from "../components/CharacterDetails/CharacterInfo";
-import useFetch from "../hooks/useFetch";
-import { baseUri, people } from "../constants/constants";
 import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
 import Loader from "../components/common/Loader/Loader";
+import useFetch from "../hooks/useFetch";
+import { baseUri, people } from "../constants/constants";
 
 function CharacterDetails() {
   const { id } = useParams();
@@ -14,14 +14,7 @@ function CharacterDetails() {
     return <ErrorMessage />;
   }
 
-  return (
-    <>
-      {isLoading ?
-        <Loader /> :
-        <CharacterInfo data={data}/>
-      }
-    </>
-  );
+  return <>{isLoading ? <Loader /> : <CharacterInfo data={data} />}</>;
 }
 
 export default CharacterDetails;
