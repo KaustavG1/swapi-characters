@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import CharacterInfo from "../components/CharacterDetails/CharacterInfo";
+import CharacterInfo from "../components/CharacterInfo/CharacterInfo";
 import ErrorMessage from "../components/common/ErrorMessage/ErrorMessage";
 import Loader from "../components/common/Loader/Loader";
 import useFetch from "../hooks/useFetch";
