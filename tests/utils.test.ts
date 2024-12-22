@@ -12,10 +12,10 @@ vi.mock("axios");
   data: mockPlanetsData,
 });
 
-describe("It tests fetch data function", () => {
-  afterEach(vi.clearAllMocks);
+afterEach(vi.clearAllMocks);
 
-  it("tests fetch data success", async () => {
+describe("fetchDataFromUrl function", () => {
+  it("tests 'fetchDataFromUrl' success case", async () => {
     const { data, error } = await fetchDataFromUrl<PlanetDetails>(
       `${baseUri}/${planets}/1`
     );
@@ -25,7 +25,7 @@ describe("It tests fetch data function", () => {
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
-  it("tests fetch data failure", async () => {
+  it("tests 'fetchDataFromUrl' failure case", async () => {
     (axios.get as MockedFunction<typeof axios>).mockRejectedValue(
       new Error("API Error")
     );
@@ -34,23 +34,21 @@ describe("It tests fetch data function", () => {
       `${baseUri}/${planets}/1`
     );
     expect(data).toBeNull();
-    expect(error).not.toBe(null);
+    expect(error).not.toBeNull();
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });
 
-describe("It tests local storage helper function", () => {
-  beforeAll(() => {
+describe("setLocalValue and getLocalValue function", () => {
+  it("tests 'setLocalValue' and 'getLocalValue' functions", async () => {
     Object.defineProperty(window, "localStorage", {
       value: mockLocalStorage,
     });
-  });
 
-  it("tests setting and getting data in local storage", async () => {
     const success = setLocalValue(localStorageKey, mockValue);
     expect(JSON.stringify(getLocalValue(localStorageKey))).equal(
       JSON.stringify(mockValue)
     );
-    expect(success).toBe(true);
+    expect(success).toBeTruthy();
   });
 });

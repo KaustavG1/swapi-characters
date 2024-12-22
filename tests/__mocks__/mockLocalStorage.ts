@@ -7,9 +7,7 @@ export const mockLocalStorage = (() => {
     },
 
     setItem(key: string, value: string) {
-      console.log(key, value, store, "b");
       store[key] = value;
-      console.log(store, "b 2");
     },
   };
 })();

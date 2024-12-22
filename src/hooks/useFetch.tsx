@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 
 function useFetch<Type>(url: string) {
@@ -6,7 +6,7 @@ function useFetch<Type>(url: string) {
   const [data, setData] = useState<Type | null>(null);
   const [error, setError] = useState<AxiosError | null>(null);
 
-  const fetchData = async (url: string) => {
+  const fetchData = useCallback(async (url: string) => {
     try {
       const resp = await axios.get(url);
       const data = await resp?.data;
@@ -17,7 +17,7 @@ function useFetch<Type>(url: string) {
       setError(err as AxiosError);
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     setLoading(true);
