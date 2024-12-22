@@ -1,0 +1,137 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CharacterView component > renders 'CharacterView' component failure case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterView component > renders 'CharacterView' component success case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavouriteDashboard component > renders 'FavouriteDashboard' component 1`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Favourites
+    </div>
+    <div
+      class="blank"
+    />
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="empty-record-message"
+    >
+      No Records found.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavouriteDashboard component > renders 'FavouriteDashboard' component empty state 1`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Favourites
+    </div>
+    <div
+      class="blank"
+    />
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="empty-record-message"
+    >
+      No Records found.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavouriteDashboard component > renders 'FavouriteDashboard' component success case 1`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Favourites
+    </div>
+    <div
+      class="blank"
+    />
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="empty-record-message"
+    >
+      No Records found.
+    </div>
+  </div>
+</div>
+`;

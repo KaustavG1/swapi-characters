@@ -1,0 +1,130 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CharacterInfo component > renders 'CharacterInfo' component and adds favourite 1`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Character Details
+    </div>
+    <div>
+      <button
+        class="pagination-buttons button-default"
+      >
+        <span>
+          ♥️
+        </span>
+        <span />
+      </button>
+    </div>
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterInfo component > renders 'CharacterInfo' component and adds favourite 2`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Character Details
+    </div>
+    <div>
+      <button
+        class="pagination-buttons button-default"
+      >
+        <span>
+          ♥️
+        </span>
+        <span />
+      </button>
+    </div>
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterInfo component > renders 'CharacterInfo' component success case 1`] = `
+<div>
+  <div
+    class="top-nav"
+  >
+    <div>
+      <button
+        class="pagination-buttons back-button button-default"
+      >
+        <span />
+        <span>
+          Go Back
+        </span>
+      </button>
+    </div>
+    <div
+      class="section-header"
+    >
+      Character Details
+    </div>
+    <div>
+      <button
+        class="pagination-buttons button-default"
+      >
+        <span>
+          ♥️
+        </span>
+        <span />
+      </button>
+    </div>
+  </div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;

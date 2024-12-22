@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CharacterView component > renders 'CharacterView' component failure case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterView component > renders 'CharacterView' component success case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard component > renders 'Dashboard' component failure case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard component > renders 'Dashboard' component success case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;

@@ -10,6 +10,8 @@ vi.mock("axios");
   data: mockPlanetsData,
 });
 
+afterEach(vi.clearAllMocks);
+
 describe("usePaginatedData hook", () => {
   it("tests 'usePaginatedData' hook", async () => {
     const itemsPerPage = 10;

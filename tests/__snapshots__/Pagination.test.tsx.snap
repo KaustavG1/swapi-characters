@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination component > renders 'Pagination' component with disbled next 1`] = `
+<div>
+  <div
+    class="pagination-container"
+  >
+    <div>
+      <button
+        class="pagination-buttons false button-default"
+      >
+        <span />
+        <span>
+          &lt;
+        </span>
+      </button>
+    </div>
+    <div>
+      <button
+        class="pagination-buttons pagination-button-disabled button-default"
+        disabled=""
+      >
+        <span />
+        <span>
+          &gt;
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pagination component > renders 'Pagination' component with disbled previous 1`] = `
+<div>
+  <div
+    class="pagination-container"
+  >
+    <div>
+      <button
+        class="pagination-buttons pagination-button-disabled button-default"
+        disabled=""
+      >
+        <span />
+        <span>
+          &lt;
+        </span>
+      </button>
+    </div>
+    <div>
+      <button
+        class="pagination-buttons false button-default"
+      >
+        <span />
+        <span>
+          &gt;
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component > renders 'Header' component 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <input
+      class="search-bar"
+      placeholder="search characters"
+      type="text"
+      value="test search term"
+    />
+    <div>
+      <button
+        class="fav-button button-default"
+      >
+        <span>
+          ♥️
+        </span>
+        <span />
+      </button>
+    </div>
+  </div>
+</div>
+`;

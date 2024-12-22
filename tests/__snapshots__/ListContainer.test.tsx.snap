@@ -1,0 +1,304 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dashboard component > renders 'Dashboard' component failure case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard component > renders 'Dashboard' component success case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="loader"
+    >
+      Loading ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListContainer component > renders 'ListContainer' component failure case 1`] = `
+<div>
+  <div
+    class="blank-page"
+  >
+    <div
+      class="empty-record-message"
+    >
+      No Records found.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListContainer component > renders 'ListContainer' component success case 1`] = `
+<div>
+  <div
+    class="list-container undefined"
+  >
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Luke Skywalker
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        C-3PO
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        n/a
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        R2-D2
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        n/a
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Darth Vader
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Leia Organa
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        female
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Owen Lars
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Beru Whitesun lars
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        female
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        R5-D4
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        n/a
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Biggs Darklighter
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Obi-Wan Kenobi
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Anakin Skywalker
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+    <div
+      class="character-card"
+    >
+      <div
+        class="card-name"
+      >
+        Wilhuff Tarkin
+      </div>
+      <div
+        class="card-details"
+      >
+        Gender: 
+        male
+      </div>
+      <div
+        class="card-details"
+      >
+        Home Planet: 
+        Test Planet
+      </div>
+    </div>
+  </div>
+</div>
+`;

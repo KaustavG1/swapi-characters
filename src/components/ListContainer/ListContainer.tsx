@@ -18,7 +18,7 @@ function ListContainer({ data, className }: ListContainerProps) {
     navigate(`/${id}`);
   };
 
-  if (data === null) {
+  if (data === null || (Array.isArray(data) && data.length === 0)) {
     return <EmptyRecords />;
   }
 
