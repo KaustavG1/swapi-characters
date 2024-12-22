@@ -9,10 +9,14 @@ export function getLocalValue(key: string) {
   return value;
 }
 
-export function setLocalValue(key: string, value: string) {
+export function setLocalValue(key: string, value: any[]) {
+  let success = false;
   try {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
+    success = true;
   } catch (err) {
     console.error("Could not save favourite.");
   }
+
+  return success;
 }

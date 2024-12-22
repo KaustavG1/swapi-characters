@@ -50,11 +50,11 @@ function CharacterInfo({ data }: CharacterInfoProps) {
     if (Array.isArray(favs)) {
       const isFav = favs?.find((el) => el?.url === data?.url) !== undefined;
 
-      setCurrentFav(!isFav);
+      let valueSetSuccess = false;
 
       if (isFav) {
         const newFav = favs?.filter((el) => el?.url !== data?.url);
-        setLocalValue(localStorageKey, JSON.stringify(newFav));
+        valueSetSuccess = setLocalValue(localStorageKey, newFav);
       } else {
         favs.push({
           url: data?.url ?? "",
@@ -66,7 +66,11 @@ function CharacterInfo({ data }: CharacterInfoProps) {
           films: [""],
           starships: [""],
         });
-        setLocalValue(localStorageKey, JSON.stringify(favs));
+        valueSetSuccess = setLocalValue(localStorageKey, favs);
+      }
+
+      if (valueSetSuccess) {
+        setCurrentFav(!isFav);
       }
     }
   };
