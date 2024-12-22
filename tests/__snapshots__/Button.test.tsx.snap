@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button component > renders 'Button' component 1`] = `
+<div>
+  <div>
+    <button
+      class="undefined button-default"
+    >
+      <span />
+      <span>
+        Test button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button component > renders disabled 'Button' component 1`] = `
+<div>
+  <div>
+    <button
+      class="undefined button-default"
+      disabled=""
+    >
+      <span />
+      <span>
+        Test Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
