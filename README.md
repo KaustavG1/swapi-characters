@@ -24,6 +24,10 @@ This app provides a list of all characters in the Star Wars Universe and their d
 
 ```yarn test```
 
+6. Run e2e tests using:
+
+```yarn cy```
+
 ## Additional notes
 
 The swapi.dev ```https://swapi.dev/``` api has been down over the weekend. So I was unable to use that api.
@@ -38,3 +42,7 @@ Since both of these features was presented as a requirement, I've created 2 apps
 ```https://swapi.info/``` is on ```swapi-info```
 
 Also, I would have liked to complete the bonus feature of editing height and gender and add proper testing, but couldn't complete because of time constraint.
+
+## Update
+
+Added unit tests using Vitest, RTL and Jest-Dom and end to end tests using Cypress.

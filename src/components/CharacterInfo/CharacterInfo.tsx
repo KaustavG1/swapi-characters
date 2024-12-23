@@ -107,7 +107,7 @@ function CharacterInfo({ data }: CharacterInfoProps) {
         <Button
           icon={isCurrentFav ? "💔" : "♥️"}
           text=""
-          className="pagination-buttons"
+          className="pagination-buttons make-fav"
           onClick={handleFavClick}
         />
       </div>

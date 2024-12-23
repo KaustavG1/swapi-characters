@@ -30,7 +30,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (Array.isArray(peopleData)) {
-      setData(peopleData?.slice(0, 14));
+      setData(peopleData);
     }
   }, [peopleData]);
 
